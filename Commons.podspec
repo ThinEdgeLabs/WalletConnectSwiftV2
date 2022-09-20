@@ -15,9 +15,9 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "WalletConnect"
+  spec.name         = "Commons"
   spec.version      = "0.0.1"
-  spec.summary      = "WalletConnectV2Swift"
+  spec.summary      = "WalletConnectV2Swift - Commons"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -57,8 +57,8 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://github.com/WalletConnect/WalletConnectSwiftV2.git", :tag => "#{spec.version}" }
-
+  # spec.source       = { :git => "https://github.com/WalletConnect/WalletConnectSwiftV2.git", :tag => "#{spec.version}" }
+    spec.source       = { :git => "https://github.com/ThinEdgeLabs/WalletConnectSwiftV2.git", :branch => "pod_config" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -68,9 +68,8 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Sources/**/*.swift"
+  spec.source_files  = "Sources/Commons"
   # spec.exclude_files = "Classes/Exclude"
-
   # spec.public_header_files = "Classes/**/*.h"
 
 
@@ -111,54 +110,5 @@ Pod::Spec.new do |spec|
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
-
-  spec.subspec "WalletConnectSign" do |ss|
-    ss.source_files = "Sources/WalletConnectSign/**/*.swift"
-    ss.dependency "WalletConnect/WalletConnectRelay"
-    ss.dependency "WalletConnect/WalletConnectUtils"
-    ss.dependency "WalletConnect/WalletConnectKMS"
-    ss.dependency "WalletConnect/WalletConnectPairing"
-  end
-
-  spec.subspec "WalletConnectRelay" do |ss|
-    ss.source_files = "Sources/WalletConnectRelay/**/*.swift"
-    ss.dependency "WalletConnect/WalletConnectUtils"
-    ss.dependency "WalletConnect/WalletConnectKMS"
-  end
-
-  spec.subspec "WalletConnectKMS" do |ss|
-    ss.source_files = "Sources/WalletConnectKMS/**/*.swift"
-    ss.dependency "WalletConnect/WalletConnectUtils"
-  end
-
-  spec.subspec "WalletConnectPairing" do |ss|
-    ss.source_files = "Sources/WalletConnectPairing/**/*.swift"
-    ss.dependency "WalletConnect/WalletConnectUtils"
-    ss.dependency "WalletConnect/WalletConnectNetworking"
-    ss.dependency "WalletConnect/JSONRPC"
-  end
-
-  spec.subspec "WalletConnectNetworking" do |ss|
-    ss.source_files = "Sources/WalletConnectNetworking/**/*.swift"
-    ss.dependency "WalletConnect/JSONRPC"
-    ss.dependency "WalletConnect/WalletConnectKMS"
-    ss.dependency "WalletConnect/WalletConnectRelay"
-    ss.dependency "WalletConnect/WalletConnectUtils"
-  end
-
-  spec.subspec "WalletConnectUtils" do |ss|
-    ss.source_files = "Sources/WalletConnectUtils/**/*.swift"
-    ss.dependency "WalletConnect/Commons"
-    ss.dependency "WalletConnect/JSONRPC"
-  end
-
-  spec.subspec "JSONRPC" do |ss|
-    ss.source_files = "Sources/JSONRPC/**/*.swift"
-    ss.dependency "WalletConnect/Commons"
-  end
-
-  spec.subspec "Commons" do |ss|
-    ss.source_files = "Sources/Commons/**/*.swift"
-  end
 
 end
